@@ -1,7 +1,7 @@
-[[build]
+# railway.toml
+[build]
 builder = "NIXPACKS"
-buildCommand = "chmod +x mvnw && ./mvnw -DskipTests package"
 
 [deploy]
-startCommand = "java -jar target/tienda-api-0.0.1-SNAPSHOT.jar"
+startCommand = "./mvnw -DskipTests spring-boot:run"
 
