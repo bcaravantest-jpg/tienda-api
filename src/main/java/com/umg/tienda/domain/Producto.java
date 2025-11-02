@@ -1,31 +1,31 @@
 package com.umg.tienda.domain;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 @Table(name = "productos")
 public class Producto {
 
-	  @Id
-	  @GeneratedValue(strategy = GenerationType.IDENTITY)
-	  private Long id;
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	  @NotBlank
-	  @Column(nullable = false)
-	  private String nombre;
+    @Column(nullable=false)
+    private String nombre;
 
-	  @NotNull @Min(0)
-	  private Double precio;
+    @NotNull @Min(0)
+    private Double precio;
 
-	  @NotNull @Min(0)
-	  private Integer stock;
+    @NotNull @Min(0)
+    private Integer stock;
 
-	  @ManyToOne(fetch = FetchType.EAGER, optional = false)
-	  @JoinColumn(name = "categoria_id", nullable = false)
-	  private Categoria categoria;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "categoria_id", nullable = false)
+    @JsonIgnoreProperties({"productos"}) // evita que serialize la colección de vuelta
+    private Categoria categoria;
 
 	  // getters/setters
 	  public Long getId() { return id; }
