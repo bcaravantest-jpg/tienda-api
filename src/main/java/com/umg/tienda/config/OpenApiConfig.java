@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class OpenApiConfig {
 	@Bean
-	  public OpenAPI tiendaApi() {
+	  public OpenAPI tiendaOpenAPI() {
 	    return new OpenAPI().info(new Info()
-	      .title("API Tienda - Fase 1")
-	      .version("v1")
-	      .description("CRUD de Categoría, Producto y Cliente con Spring Boot + H2"));
+	        .title("Tienda API")
+	        .version("v1")
+	        .description("API de ejemplo para categorías, productos y clientes"));
 	  }
 	}
