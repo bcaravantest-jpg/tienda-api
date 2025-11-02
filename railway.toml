@@ -1,0 +1,6 @@
+[build]
+builder = "NIXPACKS"
+buildCommand = "./mvnw -DskipTests package"
+
+[deploy]
+startCommand = "java -jar target/tienda-api-0.0.1-SNAPSHOT.jar"
