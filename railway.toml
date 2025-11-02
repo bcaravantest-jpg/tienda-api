@@ -1,7 +1,7 @@
-# railway.toml
 [build]
 builder = "NIXPACKS"
 
 [deploy]
 startCommand = "./mvnw -DskipTests spring-boot:run"
+
 
